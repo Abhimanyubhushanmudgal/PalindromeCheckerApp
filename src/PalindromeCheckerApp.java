@@ -99,6 +99,18 @@ public class PalindromeCheckerApp {
         }
     }
 
+    static void continueOrExit() {
+        Scanner sc = new Scanner(System.in);
+        char choice;
+
+        do {
+            System.out.print("Do you want to continue? (y/n): ");
+            choice = sc.next().toLowerCase().charAt(0);
+        } while (choice == 'y');
+
+        System.out.println("Program exited.");
+    }
+
 
 
     public static void main(String[] args) {
@@ -113,6 +125,7 @@ public class PalindromeCheckerApp {
         checkSpecialCharPalindrome("A man, a plan, a canal: Panama");
 
         checkNumericPalindrome(12321);
+        continueOrExit();
 
 
     }
