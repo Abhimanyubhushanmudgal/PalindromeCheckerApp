@@ -81,6 +81,23 @@ public class PalindromeCheckerApp {
             System.out.println("Ignoring special chars: Not a Palindrome");
         }
     }
+    // UC6: Numeric palindrome check
+    static void checkNumericPalindrome(int number) {
+        int original = number;
+        int reverse = 0;
+
+        while (number > 0) {
+            int digit = number % 10;
+            reverse = reverse * 10 + digit;
+            number /= 10;
+        }
+
+        if (original == reverse) {
+            System.out.println("Numeric palindrome");
+        } else {
+            System.out.println("Not a numeric palindrome");
+        }
+    }
 
 
 
@@ -94,6 +111,8 @@ public class PalindromeCheckerApp {
 
         checkCaseInsensitivePalindrome("MadAm");
         checkSpecialCharPalindrome("A man, a plan, a canal: Panama");
+
+        checkNumericPalindrome(12321);
 
 
     }
