@@ -58,6 +58,30 @@ public class PalindromeCheckerApp {
     }
 
 
+    // UC5: Ignore spaces and special characters
+    static void checkSpecialCharPalindrome(String input) {
+        input = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        int start = 0;
+        int end = input.length() - 1;
+        boolean isPalindrome = true;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        if (isPalindrome) {
+            System.out.println("Ignoring special chars: Palindrome");
+        } else {
+            System.out.println("Ignoring special chars: Not a Palindrome");
+        }
+    }
+
 
 
     public static void main(String[] args) {
@@ -69,6 +93,7 @@ public class PalindromeCheckerApp {
         checkUserInputPalindrome();
 
         checkCaseInsensitivePalindrome("MadAm");
+        checkSpecialCharPalindrome("A man, a plan, a canal: Panama");
 
 
     }
