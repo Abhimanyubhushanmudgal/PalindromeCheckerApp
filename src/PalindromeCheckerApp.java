@@ -33,6 +33,29 @@ public class PalindromeCheckerApp {
             System.out.println(input + " is NOT a Palindrome");
         }
     }
+    // UC4: Case-insensitive palindrome check
+    static void checkCaseInsensitivePalindrome(String input) {
+        input = input.toLowerCase();
+
+        int start = 0;
+        int end = input.length() - 1;
+        boolean isPalindrome = true;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        if (isPalindrome) {
+            System.out.println("Case-insensitive: Palindrome");
+        } else {
+            System.out.println("Case-insensitive: Not a Palindrome");
+        }
+    }
 
 
 
@@ -44,6 +67,8 @@ public class PalindromeCheckerApp {
 
         // UC3
         checkUserInputPalindrome();
+
+        checkCaseInsensitivePalindrome("MadAm");
 
 
     }
