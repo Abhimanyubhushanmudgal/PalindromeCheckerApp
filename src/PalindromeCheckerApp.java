@@ -9,6 +9,30 @@ public class PalindromeCheckerApp {
         System.out.println("   Welcome to Palindrome Checker ");
         System.out.println("=================================");
     }
+    static void checkUserInputPalindrome() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a word or number: ");
+        String input = sc.nextLine();
+
+        boolean isPalindrome = true;
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
+        }
+
+        if (isPalindrome) {
+            System.out.println(input + " is a Palindrome");
+        } else {
+            System.out.println(input + " is NOT a Palindrome");
+        }
+    }
 
 
 
@@ -18,7 +42,8 @@ public class PalindromeCheckerApp {
         // UC1
         showWelcomeMessage();
 
-        // UC2
+        // UC3
+        checkUserInputPalindrome();
 
 
     }
