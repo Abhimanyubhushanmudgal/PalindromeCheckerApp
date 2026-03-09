@@ -5,16 +5,20 @@ public class PalindromeCheckerApp {
 
 
     // Node class for singly linked list
-    static class PalindromeService {
+    interface PalindromeStrategy{
+        boolean check(String input);
+    }
 
-        boolean isPalindrome(String input){
+    static class SimpleStrategy implements PalindromeStrategy{
 
-            int start = 0;
-            int end = input.length()-1;
+        public boolean check(String input){
 
-            while(start < end){
+            int start=0;
+            int end=input.length()-1;
 
-                if(input.charAt(start) != input.charAt(end))
+            while(start<end){
+
+                if(input.charAt(start)!=input.charAt(end))
                     return false;
 
                 start++;
@@ -26,10 +30,8 @@ public class PalindromeCheckerApp {
     }
     public static void main(String[] args) {
 
-        PalindromeService service = new PalindromeService();
-        System.out.println(service.isPalindrome("racecar"));
-
-
+        PalindromeStrategy strategy = new SimpleStrategy();
+        System.out.println(strategy.check("madam"));
 
 
 
