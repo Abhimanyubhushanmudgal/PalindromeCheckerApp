@@ -2,36 +2,39 @@
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
+    static boolean recursivePalindrome(String str, int start, int end) {
 
+        if (start >= end)
+            return true;
 
-    // Node class for singly linked list
-    interface PalindromeStrategy{
-        boolean check(String input);
+        if (str.charAt(start) != str.charAt(end))
+            return false;
+
+        return recursivePalindrome(str, start + 1, end - 1);
     }
 
-    static class SimpleStrategy implements PalindromeStrategy{
+    // Node class for singly linked list
+    static void performanceTest(){
 
-        public boolean check(String input){
+        String word="madam";
 
-            int start=0;
-            int end=input.length()-1;
+        long start = System.nanoTime();
 
-            while(start<end){
+        recursivePalindrome(word,0,word.length()-1);
 
-                if(input.charAt(start)!=input.charAt(end))
-                    return false;
+        long end = System.nanoTime();
 
-                start++;
-                end--;
-            }
-
-            return true;
-        }
+        System.out.println("Execution Time: "+(end-start));
     }
     public static void main(String[] args) {
 
-        PalindromeStrategy strategy = new SimpleStrategy();
-        System.out.println(strategy.check("madam"));
+        String word = "level";
+
+        if (recursivePalindrome(word, 0, word.length() - 1)) {
+            System.out.println("Recursive Palindrome");
+        } else {
+            System.out.println("Not Recursive Palindrome");
+        }
 
 
 
