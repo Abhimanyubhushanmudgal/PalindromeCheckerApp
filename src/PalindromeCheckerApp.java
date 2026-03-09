@@ -5,27 +5,29 @@ public class PalindromeCheckerApp {
 
 
     // Node class for singly linked list
-    static boolean ignoreCaseSpacePalindrome(String input){
+    static class PalindromeService {
 
-        input = input.replaceAll("\\s+","").toLowerCase();
+        boolean isPalindrome(String input){
 
-        int start = 0;
-        int end = input.length()-1;
+            int start = 0;
+            int end = input.length()-1;
 
-        while(start < end){
+            while(start < end){
 
-            if(input.charAt(start) != input.charAt(end))
-                return false;
+                if(input.charAt(start) != input.charAt(end))
+                    return false;
 
-            start++;
-            end--;
+                start++;
+                end--;
+            }
+
+            return true;
         }
-
-        return true;
     }
     public static void main(String[] args) {
 
-        System.out.println(ignoreCaseSpacePalindrome("Never Odd Or Even"));
+        PalindromeService service = new PalindromeService();
+        System.out.println(service.isPalindrome("racecar"));
 
 
 
