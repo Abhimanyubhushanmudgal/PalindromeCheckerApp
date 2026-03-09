@@ -14,27 +14,20 @@ public class PalindromeCheckerApp {
     }
 
     // Node class for singly linked list
-    static void performanceTest(){
+    static void compareAlgorithms(){
 
-        String word="madam";
+        String word="racecar";
 
-        long start = System.nanoTime();
-
+        long start1 = System.nanoTime();
         recursivePalindrome(word,0,word.length()-1);
+        long end1 = System.nanoTime();
 
-        long end = System.nanoTime();
-
-        System.out.println("Execution Time: "+(end-start));
+        System.out.println("Recursive Time: "+(end1-start1));
     }
     public static void main(String[] args) {
 
-        String word = "level";
+        compareAlgorithms();
 
-        if (recursivePalindrome(word, 0, word.length() - 1)) {
-            System.out.println("Recursive Palindrome");
-        } else {
-            System.out.println("Not Recursive Palindrome");
-        }
 
 
 
